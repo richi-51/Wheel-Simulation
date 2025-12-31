@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicycle Wheel Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Wheel & Distance Simulation</h1>
+        <p class="subtitle">Explore the relationship between wheel circumference and distance travelled</p>
+    </header>
+
+    <main class="container">
+        <!-- Visualization Area (Left/Top) -->
+        <section class="visualization-section">
+            <div class="canvas-container">
+                <canvas id="simulationCanvas"></canvas>
+            </div>
+            <div class="visual-controls">
+                <div class="speed-control">
+                    <label>Speed:</label>
+                    <button class="speed-btn active" data-speed="0.5">Slow</button>
+                    <button class="speed-btn" data-speed="1">Normal</button>
+                    <button class="speed-btn" data-speed="2">Fast</button>
+                </div>
+                <button id="btnFullscreen" class="btn small secondary">Fullscreen ⛶</button>
+            </div>
+        </section>
+
+        <!-- Controls & Info (Right/Bottom) -->
+        <aside class="controls-section">
+            <div class="panel control-panel">
+                <h2>Controls</h2>
+
+                <div class="input-group">
+                    <label>Pi Value (π):</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="piMode" value="3.14" checked> 3.14</label>
+                        <label><input type="radio" name="piMode" value="22_7"> 22/7</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="radiusInput">Radius (r) in cm:</label>
+                    <input type="number" id="radiusInput" min="0.1" step="0.1" value="56">
+                </div>
+
+                <div class="input-group">
+                    <label for="revInput">Target Revolutions:</label>
+                    <input type="number" id="revInput" min="0.1" step="0.1" value="10">
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btnPlayPause" class="btn primary">Start</button>
+                    <button id="btnReset" class="btn secondary">Reset</button>
+                    <button id="btnOneRev" class="btn secondary">1 Revolution</button>
+                    <button id="btnDemo" class="btn accent">Demo Problem</button>
+                </div>
+            </div>
+
+            <div class="panel info-panel">
+                <h2>Data & Formulas</h2>
+                <div class="formula-box">
+                    <p><strong>Circumference</strong> = 2 × π × r</p>
+                    <p><strong>Distance</strong> = Circumference × Revolutions</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Circumference</span>
+                        <span class="stat-value" id="circumferenceDisplay">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Distance</span>
+                        <span class="stat-value" id="distanceDisplay">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Revolutions</span>
+                        <span class="stat-value" id="currentRevDisplay">0.00</span>
+                    </div>
+                </div>
+
+                <div id="explanation" class="explanation-text">
+                    Change parameters or start the animation to see the explanation.
+                </div>
+            </div>
+
+            <div class="panel modes-panel">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="stepMode">Step-by-Step</button>
+                    <button class="tab-btn" data-tab="quizMode">Quiz</button>
+                </div>
+
+                <div id="stepMode" class="tab-content active">
+                    <p>Interactive Learning Mode:</p>
+                    <button id="btnNextStep" class="btn primary small">Next Step</button>
+                    <div id="stepInfo">Click the button to start learning.</div>
+                </div>
+
+                <div id="quizMode" class="tab-content">
+                    <p id="quizQuestion">Ready for a challenge?</p>
+                    <div id="quizControls" style="display:none;">
+                        <input type="number" id="quizAnswer" placeholder="Your Answer">
+                        <button id="btnSubmitQuiz" class="btn primary small">Submit</button>
+                    </div>
+                    <button id="btnStartQuiz" class="btn primary small">Start Quiz</button>
+                    <p id="quizResult"></p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bicycle Wheel Simulation. Created for educational purposes.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
